@@ -8,8 +8,8 @@ const { login } = require("./user.controller");
  */
 exports.createCategory = async (req, res) => {
   try {
-    const { emptyBody, fieldName } = validateBody(req);
-    if (emptyBody) {
+    const { empty, fieldName } = validateBody(req);
+    if (empty) {
       res.status(401).json({
         msg: `${fieldName} missing`,
       });

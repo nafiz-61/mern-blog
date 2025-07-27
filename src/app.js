@@ -23,6 +23,15 @@ app.delete("/delete-category/:id", categoryController.deleteCategory);
 
 // blog routes
 app.post("/create-blog", upload.single("image"), blogController.createBlog);
+app.get("/getallblog", blogController.getAllBlogs);
+app.get("/singleBlog/:id", blogController.getSingleBlog);
+app.put(
+  "/update-blog/:id",
+  upload.single("image"),
+  blogController.getUpdateBlog
+);
+
+app.delete("/delete-blog/:id", blogController.deleteBlog);
 
 app.use("/static", express.static("public/temp"));
 module.exports = { app };
