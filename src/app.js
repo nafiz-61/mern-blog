@@ -4,10 +4,12 @@ const userController = require("../src/controller/user.controller");
 const categoryController = require("./controller/category.controller");
 const blogController = require("./controller/blog.controller");
 const upload = require("./middleware/multer.middlware");
+const cors = require("cors");
 require("dotenv").config();
 const app = new express();
 
 // user middleware
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 

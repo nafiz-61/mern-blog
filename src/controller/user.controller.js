@@ -15,11 +15,11 @@ exports.registration = async (req, res) => {
         msg: "email missing",
       });
     }
-    if (!avatar) {
-      return res.status(401).json({
-        msg: "avatar missing",
-      });
-    }
+    // if (!avatar) {
+    //   return res.status(401).json({
+    //     msg: "avatar missing",
+    //   });
+    // }
     if (!password) {
       return res.status(401).json({
         msg: "password missing",
@@ -33,22 +33,22 @@ exports.registration = async (req, res) => {
 
     const isExist = await userModel.findOne({ email: email });
     if (isExist) {
-      res.status(401).json({
+      return res.status(401).json({
         msg: `${email} Already exist`,
       });
     }
 
     // now save the data
-    userModel.create({
+    const newUser = await userModel.create({
       userName,
       email,
       // avatar,
       password,
       phoneNumber,
-      ...req.body,
     });
     return res.status(201).json({
       msg: " Registration successfull",
+      data: newUser,
     });
   } catch (error) {
     console.log(`error from user registraion controller`, error);
@@ -68,7 +68,7 @@ exports.login = async (req, res) => {
     });
     console.log(isExist);
     if (!isExist) {
-      return res.status({
+      return res.status(401).json({
         msg: "email/password invalid",
       });
     }

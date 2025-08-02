@@ -18,6 +18,7 @@ const userSchema = new Schema(
     avatar: {
       type: String,
       trim: true,
+      required: false,
     },
     password: {
       type: String,
@@ -29,7 +30,7 @@ const userSchema = new Schema(
       trim: true,
     },
     phoneNumber: {
-      type: Number,
+      type: String,
       required: true,
       trim: true,
     },
