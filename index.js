@@ -11,12 +11,3 @@ connectDB().then(() => {
     console.log(`Error from index js / database connection error` , err);
     
 })
-
-
-
-
-
-
-
-
-
