@@ -8,3 +8,4 @@ exports.validateBody = (req) => {
     return { empty: false, fieldName: "" };
   }
 };
+
