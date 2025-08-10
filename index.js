@@ -9,5 +9,5 @@ connectDB().then(() => {
   });
 }).catch((err)=>{
     console.log(`Error from index js / database connection error` , err);
-    
 })
+
